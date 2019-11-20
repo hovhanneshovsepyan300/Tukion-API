@@ -74,7 +74,7 @@ module.exports.download = async function (req, res) {
         })
            
         video.on('end', function() {
-            res.download(`assets/myvideo.mp4`);
+            res.download(__dirname + `assets/myvideo.mp4`);
             res.on('end', function end(res){
                 console.log("res finisheddddddd", res)
                 res.status(200).json(res)

@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static('assets'));
+app.use(express.static(__dirname + 'assets'));
 
 app.use('/api/video', videoRoutes);
 app.use('/api/category', categoryRoutes);
