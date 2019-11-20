@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,7 +10,7 @@ const KEYS = require('./config/keys');
 
 const app = express();
 
-mongoose.connect(KEYS.mongoURI, {useNewUrlParser: true, useFindAndModify: false}).then(() => {
+mongoose.connect(process.env.MONGODB_URI || KEYS.mongoURI, {useNewUrlParser: true, useFindAndModify: false}).then(() => {
     console.log("MongoDb");
 }).catch((err) => {
     console.log(err)
