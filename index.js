@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const videoRoutes = require('./routes/video');
 const categoryRoutes = require('./routes/category');
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static(__dirname + 'assets'));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use('/api/video', videoRoutes);
 app.use('/api/category', categoryRoutes);
