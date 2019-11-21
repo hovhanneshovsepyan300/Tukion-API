@@ -66,14 +66,14 @@ module.exports.download = async function (req, res) {
             console.log('size: ' + info.size)
         })
         
-        video.pipe(fs.createWriteStream('assets/myvideo.mp4'));
+        video.pipe(fs.createWriteStream('myvideo.mp4'));
 
         video.on('complete', function complete(info) {
             'use strict'
             console.log('filename: ' + info._filename + ' already downloaded.')
         })
         video.on('end', function() {
-            res.download(`assets/myvideo.mp4`);
+            res.download(`myvideo.mp4`);
             res.on('end', function end(res){
                 console.log("res finisheddddddd", res)
                 res.status(200).json(res)
